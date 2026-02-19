@@ -1,0 +1,22 @@
+version: '2' # Menggunakan Docker Compose versi 2 sesuai kriteria
+
+services:
+  # Service untuk aplikasi Node.js
+  item-app:
+    image: sayyidusyalghiffari/item-app:v1 # Mengambil image dari Docker Hub kamu
+    ports:
+      - "80:8080" # Port mapping: port 80 di host ke port 8080 di container
+    depends_on:
+      - item-db # Menjamin item-app jalan SETELAH item-db siap
+    restart: always # Saran tambahan: otomatis restart jika container terhenti
+
+  # Service untuk database MongoDB
+  item-db:
+    image: mongo:3 # Menggunakan MongoDB versi 3 sesuai kriteria
+    volumes:
+      - app-db:/data/db # Menggunakan volume untuk persistensi data
+    restart: always
+
+# Definisi volume yang digunakan oleh item-db
+volumes:
+  app-db:
