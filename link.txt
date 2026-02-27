@@ -1,0 +1,6 @@
+Link Repository GitHub:
+https://github.com/sayyidusy15/a433-microservices.git
+
+Link Container Images (Docker Hub):
+Order Service: https://hub.docker.com/r/sayyidusyalghiffari/order-service
+Shipping Service: https://hub.docker.com/r/sayyidusyalghiffari/shipping-service
